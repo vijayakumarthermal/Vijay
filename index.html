@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Thilagan K. - Research Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f8fafc;
+            color: #2d3748;
+        }
+        .header-bg {
+            background: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(59, 130, 246, 0.5);
+        }
+        .tab-button.active {
+            background-color: #7c3aed;
+            color: #ffffff;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+        .publication, .employment, .education, .award {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .nav-bar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        a {
+            color: #3b82f6;
+        }
+        a:hover {
+            color: #7c3aed;
+        }
+        .journal-cover {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+        .journal-cover:hover {
+            transform: scale(1.1);
+        }
+        #scroll-down {
+            display: inline-block;
+            z-index: 20;
+            opacity: 1;
+        }
+        @media (max-width: 640px) {
+            .journal-cover {
+                width: 80px;
+                height: 120px;
+            }
+            #scroll-down {
+                padding: 0.5rem 1.5rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-bg h-screen flex items-center justify-center text-white relative">
+        <div class="text-center z-10">
+            <img src="Dr_Thilagan_K.jpg" alt="Dr. Thilagan K." class="rounded-full w-24 h-24 mx-auto mb-4 border-4 border-blue-300">
+            <h1 class="text-5xl font-bold mb-2">Dr. Thilagan K.</h1>
+            <p class="text-xl">Researcher area : Desalination, Compact Desalination and Solar Energy</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="mailto:kthilagan177@gmail.com">
+                    <img src="logo/gmail-logo.png" alt="Gmail" style="height: 24px; width: auto;">
+                </a>
+                <a href="https://scholar.google.com/citations?user=5lldYecAAAAJ" target="_blank">
+                    <img src="logo/Google_Scholar_logo1.jpg" alt="Gscholar" style="height: 24px; width: auto;">
+                </a>
+                <a href="https://orcid.org/0000-0001-7695-8133" target="_blank">
+                    <img src="logo/ORCID_logo.png" alt="ORCID iD" style="height: 24px; width: auto;">
+                </a> 
+                <a href="https://www.linkedin.com/in/thilagan-k/" target="_blank">
+                    <img src="logo/LinkedIn_logo.png" alt="LinkdIn" style="height: 24px; width: auto;">
+                </a>    
+                <a href="https://www.researchgate.net/profile/Thilagan-Kannappan?ev=hdr_xprf" target="_blank">
+                    <img src="logo/RG_logo.jpg" alt="ResearchGate" style="height: 24px; width: auto;">
+                </a>
+            </div>
+            <button id="scroll-down" class="mt-6 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-purple-600 transition duration-300">Scroll Down to Know Me</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar shadow sticky top-0 z-20">
+        <div class="container mx-auto px-4 py-4 flex justify-center space-x-4">
+            <button class="tab-button px-4 py-2 rounded hover:bg-blue-500 hover:text-white active" data-tab="bio">Bio</button>
+            <button class="tab-button px-4 py-2 rounded hover:bg-blue-500 hover:text-white" data-tab="education">Education</button>
+            <button class="tab-button px-4 py-2 rounded hover:bg-blue-500 hover:text-white" data-tab="employment">Employment</button>
+            <button class="tab-button px-4 py-2 rounded hover:bg-blue-500 hover:text-white" data-tab="publications">Publications</button>
+            <button class="tab-button px-4 py-2 rounded hover:bg-blue-500 hover:text-white" data-tab="skills">Skills</button>
+            <button class="tab-button px-4 py-2 rounded hover:bg-blue-500 hover:text-white" data-tab="awards">Awards</button>
+            <button class="tab-button px-4 py-2 rounded hover:bg-blue-500 hover:text-white" data-tab="news-media">News & Media</button>
+            <button class="tab-button px-4 py-2 rounded hover:bg-blue-500 hover:text-white" data-tab="contact">Contact</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Bio -->
+        <section id="bio" class="tab-content active">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">About Me</h2>
+            <p class="text-lg">
+                Dr. Thilagan K. is a dedicated researcher specializing in solar energy and desalination systems. With a Ph.D. from IIT Madras, his work focuses on innovative solutions for sustainable water purification using renewable energy. He has published extensively in high-impact journals and presented at international conferences. Dr. Thilagan is a member of prestigious organizations like the International Solar Energy Society and the Indian Desalination Association.
+            </p>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Education</h2>
+            <div class="education mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Ph.D., Mechanical Engineering</h3>
+                <p>Indian Institute of Technology Madras, Chennai, Tamil Nadu | 2018 - 2025</p>
+                <p>Thesis: Experimental Investigation on Solar-Driven Multi-Effect Compact Sea Water Desalination System</p>
+            </div>
+            <div class="education mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">M.S. (By Research)</h3>
+                <p>CEG Guindy Campus, Anna University, Chennai, Tamil Nadu | 2014 - 2017</p>
+                <p>Thesis: Studies on Drying of Leafy Vegetables Using Modified Solar Evacuated Tube Collectors</p>
+            </div>
+            <div class="education mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">B.E., Mechanical Engineering</h3>
+                <p>Sri Venkateswara College of Engineering, Sriperumbudur, Tamil Nadu | 2010 - 2014</p>
+            </div>
+        </section>
+
+        <!-- Employment -->
+        <section id="employment" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Employment History</h2>
+            <div class="employment mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Senior Project Scientist</h3>
+                <p>Department of Mechanical Engineering, IIT Madras | Mar 2025 - Apr 2025</p>
+            </div>
+            <div class="employment mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Project Officer</h3>
+                <p>Department of Mechanical Engineering, IIT Madras | Apr 2023 - Dec 2024</p>
+            </div>
+            <div class="employment mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Project Officer</h3>
+                <p>Department of Mechanical Engineering, IIT Madras | Nov 2017 - Mar 2020</p>
+            </div>
+            <div class="employment mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Project Associate</h3>
+                <p>Department of Mechanical Engineering, IIT Madras | Aug 2017 - Oct 2017</p>
+            </div>
+            <div class="employment mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Project Associate</h3>
+                <p>Department of Mechanical Engineering, IIT Madras | Sep 2016 - Apr 2017</p>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section id="publications" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Publications</h2>
+            <h3 class="text-2xl font-semibold mb-4">Journal Articles</h3>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow flex items-start">
+                <a href="https://www.sciencedirect.com/journal/solar-compass" >
+                    <img src="journal_img/Solar compass.jpg" alt="Solar Compass Cover" class="journal-cover mr-4"> </a>
+                <div>
+                    <p>K. Thilagan, S. Advaith, and A. Mani, "Simulation studies and experimental validation on solar multi effect desalination system," <i>Solar Compass</i>, vol. 13, pp. 100–110, Mar. 2025. DOI: <a href="https://doi.org/10.1016/j.solcom.2025.100110">10.1016/j.solcom.2025.100110</a></p>
+                </div>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow flex items-start">
+                <a href="https://www.sciencedirect.com/journal/solar-energy" >
+                    <img src="journal_img/solar energy.jpg" alt="Solar Energy Cover" class="journal-cover mr-4"> </a>
+                <div>
+                    <p>M. Annamalai and K. Thilagan, "Experimental studies on solar multi-effect sea water desalination system," <i>Solar Energy</i>, vol. 259, pp. 246–256, Jul. 2023. DOI: <a href="https://doi.org/10.1016/j.solener.2023.05.004">10.1016/j.solener.2023.05.004</a></p>
+                </div>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow flex items-start">
+                <a href="https://www.scientific.net/AMR/Details" >
+                    <img src="journal_img/AMR.jpeg" alt="Advanced Materials Research Cover" class="journal-cover mr-4"> </a>
+                <div>
+                    <p>P. Raghu, K. Thilagan, M. Thirumoorthy, S. Lokachari, and N. Nallusamy, "Spray Characteristics of Diesel and Biodiesel in Direct Injection Diesel Engine," <i>Advanced Materials Research</i>, vol. 768, pp. 173–179, Sep. 2013. DOI: <a href="https://doi.org/10.4028/www.scientific.net/AMR.768.173">10.4028/www.scientific.net/AMR.768.173</a></p>
+                </div>
+            </div>
+            <h3 class="text-2xl font-semibold mb-4">Conference Proceedings</h3>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow">
+                <p>K. Thilagan, S. Advaith, and A. Mani, "Experimental Studies on Compact Desalination System," in <i>8th International Conference on Polygeneration (ICP2025)</i>, 2025 [Abstract accepted; Full paper: Communicated]</p>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow">
+                <p>K. Thilagan, S. Advaith, and A. Mani, "Simulation studies and experimental validation on solar multi-effect desalination system in Kanyakumari," in <i>8th National and 2nd International Conference on Refrigeration and Air Conditioning</i>, Chennai, India, 2024, pp. 1–9</p>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow">
+                <p>K. Thilagan and M. Annamalai, "Experimental studies on solar multi-effect desalination system," in <i>ISES and IEA SHC International Conference on Solar Energy for Buildings and Industry</i>, 2022, pp. 846–857. DOI: <a href="https://doi.org/10.18086/eurosun.2022.09.01">10.18086/eurosun.2022.09.01</a></p>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow">
+                <p>K. Thilagan and M. Annamalai, "Falling Film Measurements using High Speed Camera and High Speed Infra-Red Camera," in <i>ISES and IEA SHC International Conference on Solar Energy for Buildings and Industry</i>, 2022, pp. 858–868. DOI: <a href="https://doi.org/10.18086/eurosun.2022.09.02">10.18086/eurosun.2022.09.02</a></p>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow">
+                <p>K. Thilagan and A. Mani, "Heat and mass transfer studies on falling film over metal foam layered horizontal tubes in MED system using high speed and high speed infra-red cameras," in <i>International Symposium on Compact Solar Desalination and Cold Storage Systems</i>, Chennai, India, 2022</p>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow">
+                <p>K. Thilagan, R. Sivakumar, and R. Saravanan, "Energy analysis of thin layer drying of moringa leaf using solar evacuated finned tube collectors," in <i>National Conference on Large Scale Multi-Disciplinary Systems of National Significance</i>, Satish Dhawan Space Centre SHAR, 2016</p>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow">
+                <p>K. Thilagan, A. Elaya Perumal, and R. Saravanan, "Energy analysis of thin layer drying of tomato using solar evacuated finned tube collectors," in <i>4th National Conference on Refrigeration and Air Conditioning</i>, 2015</p>
+            </div>
+            <div class="publication mb-6 bg-white p-4 rounded-lg shadow">
+                <p>P. Raghu, K. Thilagan, M. Thirumoorthy, S. Lokachari, and N. Nallusamy, "Spray Characteristics of Diesel and Biodiesel in Direct Injection Diesel Engine," in <i>International Conference on Energy Efficient Technologies for Sustainability</i>, St. Xavier's Catholic College of Engineering, Nagercoil, Tamil Nadu, India, Apr. 2013</p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Skills</h2>
+            <ul class="list-disc pl-6">
+                <li><strong>Coding:</strong> Matlab, LaTeX</li>
+                <li><strong>Software Packages:</strong> Ansys, Comsol, Solidworks, AutoCAD, EES, TRNSYS</li>
+                <li><strong>Languages:</strong> English (Proficient), Tamil (Speaking)</li>
+            </ul>
+        </section>
+
+        <!-- News & Media -->
+        <section id="news-media" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">News & Media</h2>
+            <div class="media-item mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">IIT-M's solar-powered unit aims at 10K litres of potable water per day</h3>
+                <p><strong>Source:</strong> The Times of India, Chennai, Jun. 2025</p>
+                <p><strong>Description:</strong> Discusses IIT Madras's solar-powered desalination unit targeting a capacity of 10,000 litres of potable water daily.</p>
+                <p><a href="https://timesofindia.indiatimes.com/city/chennai/iit-ms-solar-powered-desal-unit-aims-at-10k-litres-of-potable-water-per-day/articleshow/121605041.cms" target="_blank">Read more</a></p>
+            </div>
+            <div class="media-item mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">IIT Madras has developed a solar-powered desalination system</h3>
+                <p><strong>Source:</strong> IIT Madras LinkedIn, 2025</p>
+                <p><strong>Description:</strong> Highlights the development of a solar-powered desalination system that converts seawater into clean drinking water using only renewable energy.</p>
+                <p><a href="https://acesse.one/KZtNc" target="_blank">Read more</a></p>
+            </div>
+            <div class="media-item mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">A Solar Multi-Effect Desalination Success!</h3>
+                <p><strong>Source:</strong> IIT Madras Tech Talk, 2025</p>
+                <p><strong>Description:</strong> Features the success of a solar multi-effect desalination system developed at IIT Madras for producing fresh water.</p>
+                <p><a href="https://tech-talk.iitm.ac.in/a-solar-multi-effect-desalination-success/" target="_blank">Read more</a></p>
+            </div>
+            <div class="media-item mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">First plant to convert seawater into potable water using solar energy</h3>
+                <p><strong>Source:</strong> Polimer News, 2021</p>
+                <p><strong>Description:</strong> Showcases the first solar-powered plant in India to convert seawater into potable water, developed by IIT Madras.</p>
+                <p><a href="https://www.youtube.com/watch?v=jPILXuN3_UI&t=1s" target="_blank">Watch video</a></p>
+            </div>
+            <div class="media-item mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Solar Multi-effect Desalination Stand Alone System</h3>
+                <p><strong>Source:</strong> InDA, Mumbai, Feb. 2020</p>
+                <p><strong>Description:</strong> Details a stand-alone solar multi-effect desalination system developed for sustainable water production.</p>
+            </div>
+            <div class="media-item mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">IIT-Madras sets up India's 1st solar-powered desalination plant</h3>
+                <p><strong>Source:</strong> The Times of India, Chennai, Mar. 2019</p>
+                <p><strong>Description:</strong> Reports on IIT Madras establishing India's first solar-powered desalination plant for clean water production.</p>
+                <p><a href="https://timesofindia.indiatimes.com/city/chennai/iit-m-sets-up-indias-1st-solar-powered-desal-plant/articleshow/68505168.cms" target="_blank">Read more</a></p>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section id="awards" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Awards & Certifications</h2>
+            <div class="award mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Early Stage Researcher</h3>
+                <p>University Rovira I Virgili, Tarragona, Spain | Mar 2015</p>
+            </div>
+            <div class="award mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Organizing Committee</h3>
+                <p>Workshop on Natural Refrigerants-based HVAC&R Systems, IIT Madras | Apr 2025</p>
+            </div>
+            <div class="award mb-6 bg-white p-4 rounded-lg shadow">
+                <h3 class="text-xl font-semibold">Organizing Committee</h3>
+                <p>8th National and 2nd International Conference on Refrigeration and Air Conditioning, IIT Madras | Mar 2024</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-blue-600">Contact</h2>
+            <p><strong>Address:</strong> A-3/7 Cee Dee Yes Enclave, Taramani Link Road, Tansi Nagar, Velachery, Chennai, Tamil Nadu, India, PIN: 600042</p>
+            <p><strong>Phone:</strong> +91-9445492154</p>
+            <p><strong>Email:</strong> <a href="mailto:kthilagan177@gmail.com">kthilagan177@gmail.com</a></p>
+            <p><strong>Professional Memberships:</strong> Indian Desalination Association (LM5O1), ISHRAE Chennai Chapter (30662), International Solar Energy Society, International Desalination Association (168542)</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 Dr. Thilagan K. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        function showTab(tabId) {
+            // Remove active classes
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active classes
+            const button = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+            const content = document.getElementById(tabId);
+            button.classList.add('active');
+            content.classList.add('active');
+
+            // Animate content
+            gsap.fromTo(content.children, 
+                { opacity: 0, scale: 0.95 },
+                { opacity: 1, scale: 1, duration: 0.6, stagger: 0.1, ease: 'power2.out' }
+            );
+        }
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                showTab(tabId);
+            });
+        });
+
+        // Initialize the first tab (bio)
+        showTab('bio');
+
+        // Scroll Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.querySelectorAll('.publication, .employment, .education, .award').forEach(item => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                scale: 0.95,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+
+        // Header Animation
+        gsap.from('header h1, header p, header img, header a', {
+            opacity: 0,
+            scale: 0.8,
+            duration: 1.2,
+            stagger: 0.25,
+            ease: 'elastic.out(1, 0.5)',
+            delay: 0.3
+        });
+        // Scroll Down Button
+        const scrollButton = document.getElementById('scroll-down');
+        if (scrollButton) {
+            console.log('Scroll Down button found and event listener attached');
+            scrollButton.addEventListener('click', () => {
+                document.getElementById('bio').scrollIntoView({ behavior: 'smooth' });
+            });
+        } else {
+            console.error('Scroll Down button not found');
+        }
+    </script>
+</body>
+</html>
